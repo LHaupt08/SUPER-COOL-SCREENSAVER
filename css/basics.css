@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Micro+5&display=swap');
+/*Background*/
+html {
+    background-color:#141414;
+    color:white;
+}
+
+.orbit-font {
+    font-family:"Orbitron", sans-serif;
+}
+
+.jrsy-font {
+    font-family:"Jersey 10", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.micro-font {
+    font-family: "Micro 5", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
