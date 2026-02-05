@@ -1,0 +1,21 @@
+/*Basic Layout*/
+body {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+    min-height: 100vh;
+    font-size:20px;
+}
+
+.can {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.drawer {
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}

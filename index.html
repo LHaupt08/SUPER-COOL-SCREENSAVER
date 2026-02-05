@@ -8,13 +8,54 @@
     <title>SUPERCOOLSCREENSAVER :D</title>
 
     <link href="./css/basics.css" rel="stylesheet" />
-    <link href="./css/delete_me_later.css" rel="stylesheet" />
+    <link href="./css/decor.css" rel="stylesheet" />
+    <link href="./css/layout.css" rel="stylesheet" />
+
+    <script src="./js/clockwork.js" defer></script>
+    <script src="./js/schedules.js" defer></script>
 
 </head>
 
 <body>
+    <div class="can">
 
-    <img src="./img/spinning.gif" alt="creatur spinning" />
+        <div class="drawer">
+            <label class="micro-font">Cool BG Mode</label>
+            <input class="coolBG" type="checkbox" />
+        </div>
+
+        <div class="drawer">
+            
+            <select name="scheduleType" id="scheduleType" class="micro-font" style="font-size:20px;">
+
+                <option value="Red / Black Day" id="redBlack">Red/Black Day</option>
+                <option value="Green Day" id="green">Green Day</option>
+                <option value="Blue Day" id="blue">Blue Day</option>
+
+            </select>
+
+        </div>
+
+        <img src="./img/spinning.gif" alt="creatur spinning" />
+
+    </div>
+
+    <div class="can effectBox" style="width:50%;">
+
+        <div class="can">
+
+            <h1 class="orbit-font" id="timeInd">*Insert Time Here*</h1>
+            <h1 class="jrsy-font" id="dateInd">*Insert Date Here*</h1>
+
+        </div>
+
+        <div id="schedule">
+
+            <!--Javascript will appear here-->
+
+        </div>
+
+    </div>
     
 </body>
 

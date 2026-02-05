@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jersey+10&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Micro+5&display=swap');
+
+/*Background*/
+@property --startColor {
+    syntax: "<color>";
+    initial-value: #698f61;
+    inherits: false;
+    }
+
+@property --endColor {
+    syntax: "<color>";
+    initial-value: #348b21;
+    inherits: false;
+    }
+    @keyframes gradient {
+        0%,100% {
+            --startColor: #698f61;
+            --endColor: #348b21;
+        }
+        40% {
+            --startColor: #348b21;
+            --endColor: #24678b;
+        }
+        70% {
+            --startColor: #24678b;
+            --endColor: #698f61;
+        }
+    }
+
+html {
+    background:#141414;
+    color:white;
+}
+
+html:has(.can>.drawer>input.coolBG:checked) {
+    background: linear-gradient(320deg, var(--startColor), var(--endColor));
+    animation: gradient 6s linear infinite;
+    color:white;
+}
+
+.orbit-font {
+    font-family:"Orbitron", sans-serif;
+}
+
+.jrsy-font {
+    font-family:"Jersey 10", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.micro-font {
+    font-family: "Micro 5", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*Special Effects*/
+
+.effectBox {
+    background: rgba(0, 0, 0, 0.295);
+
+    padding:8px;
+    border-radius:15px;
+}
+
+.effectBox > .can > h1 {
+    margin:0px;
+}
