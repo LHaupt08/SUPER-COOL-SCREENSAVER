@@ -3,24 +3,41 @@
 // This function will apply school schedule to the website based off of what option is selected in the dropdown
 
 setupSchedule();
-setInterval("setupSchedule()", 1000)
+setInterval("setupSchedule()", 1000);
 
 function setupSchedule() {
 
-    var scheduleHTML = document.getElementById("schedule").innerHTML = "<div class='can' id='scheduleBox'><h1 id='testSchedule' class='jrsy-font'>*Current Schedule Here*</h1>";
+    var scheduleHTML = "<div class='can jrsy-font' id='scheduleBox'><h1 id='test'";
 
-    checkDropdown();
-
-    scheduleHTML += "</div>";
+    scheduleHTML += "class='rbText'>test</h1>";
+    document.getElementById("schedule").innerHTML = scheduleHTML;
 
 }
 
 function checkDropdown() {
 
+    var fontRB = "rbText";
+    var fontGr = "greenText";
+    var fontBl = "blueText"
+
     const selectedElement = document.getElementById("scheduleType");
     const curSchedule = selectedElement.value;
 
-    document.getElementById("testSchedule").innerHTML = curSchedule;
+    if (curSchedule === "Red / Black Day") {
+
+        var classColor = fontRB;
+
+    } else if(curSchedule === "Green Day") {
+
+        var classColor = fontGr;
+
+    } else {
+
+        var classColor = fontBl;
+
+    }
+
+    
 
 }
 

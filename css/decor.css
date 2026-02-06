@@ -14,6 +14,7 @@
     initial-value: #348b21;
     inherits: false;
     }
+    
     @keyframes gradient {
         0%,100% {
             --startColor: #698f61;
@@ -37,7 +38,6 @@ html {
 html:has(.can>.drawer>input.coolBG:checked) {
     background: linear-gradient(320deg, var(--startColor), var(--endColor));
     animation: gradient 6s linear infinite;
-    color:white;
 }
 
 .orbit-font {
@@ -67,4 +67,10 @@ html:has(.can>.drawer>input.coolBG:checked) {
 
 .effectBox > .can > h1 {
     margin:0px;
+}
+
+/*Schedule Colors*/
+
+.rbtext {
+    color:red;
 }
