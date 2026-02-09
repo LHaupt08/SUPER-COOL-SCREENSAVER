@@ -22,3 +22,28 @@ var longSchEnd = [
     "Febuary 6, 2026 13:23:00",
     "Febuary 6, 2026 15:03:00",
 ]
+
+// Lunch Names
+
+var lunchHour = [
+    "A Lunch",
+    "B Lunch",
+    "C Lunch",
+    "D Lunch"
+]
+
+// Lunch Times for Red and Black Days
+
+var longLunchSchBegin = [
+    "Febuary 6, 2026 11:10:00",
+    "Febuary 6, 2026 11:43:00",
+    "Febuary 6, 2026 12:22:00",
+    "Febuary 6, 2026 12:55:00"
+]
+
+var longLunchSchEnd = [
+    "Febuary 6, 2026 11:38:00",
+    "Febuary 6, 2026 12:11:00",
+    "Febuary 6, 2026 12:50:00",
+    "Febuary 6, 2026 13:23:00"
+]

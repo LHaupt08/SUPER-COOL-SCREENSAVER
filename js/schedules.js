@@ -21,9 +21,10 @@ function setupSchedule() {
 
     scheduleHTML += curSchedule + "</h1>";
 
-    document.getElementById("schedule").innerHTML = scheduleHTML;
-
+    //scheduleHTML += grabTimes();
     grabTimes();
+
+    document.getElementById("schedule").innerHTML = scheduleHTML;
 
 }
 
@@ -70,6 +71,7 @@ function selectSchedule() {
 function grabTimes() {
 
     var timeHTML = "";
+    var indexTracker = 0;
 
     for (var i = 0; i < longSchBegin.length; i++) {
 
@@ -78,12 +80,32 @@ function grabTimes() {
 
         var longDateEnd= new Date(longSchEnd[i]);
         var longTimeEnd = longDateEnd.toLocaleTimeString();
+        indexTracker +=1;
 
-        timeHTML += longHour[i] + " " + longTimeBegin + " - " + longTimeEnd;
+        //timeHTML += "<h2><span>" + longHour[i] + "</span><span> " + longTimeBegin + " - " + longTimeEnd + "</span></h2>";
+
+        timeHTML += longHour[i] + " " + longTimeBegin + " - " + longTimeEnd + " ";
+
+        if (indexTracker === 3) {
+
+            for (var a = 0; a < longLunchSchBegin.length; a++) {
+
+                var longLunchDateBegin= new Date(longLunchSchBegin[a]);
+                var longLunchTimeBegin = longLunchDateBegin.toLocaleTimeString();
+
+                var longLunchDateEnd= new Date(longLunchSchEnd[a]);
+                var longLunchTimeEnd = longLunchDateEnd.toLocaleTimeString();
+
+                timeHTML += lunchHour[a] + " " + longLunchTimeBegin + " - " + longLunchTimeEnd + " ";
+
+            }
+
+        }
 
     }
 
     window.alert(timeHTML);
+    //return timeHTML;
 }
 
 /*  Planning for how to layout html
