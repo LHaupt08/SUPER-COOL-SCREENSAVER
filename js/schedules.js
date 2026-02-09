@@ -21,8 +21,8 @@ function setupSchedule() {
 
     scheduleHTML += curSchedule + "</h1>";
 
-    //scheduleHTML += grabTimes();
-    grabTimes();
+    scheduleHTML += grabTimes();
+    //grabTimes();
 
     document.getElementById("schedule").innerHTML = scheduleHTML;
 
@@ -82,11 +82,13 @@ function grabTimes() {
         var longTimeEnd = longDateEnd.toLocaleTimeString();
         indexTracker +=1;
 
-        //timeHTML += "<h2><span>" + longHour[i] + "</span><span> " + longTimeBegin + " - " + longTimeEnd + "</span></h2>";
+        timeHTML += "<h2><span>" + longHour[i] + "</span><span> " + longTimeBegin + " - " + longTimeEnd + "</span></h2>";
 
-        timeHTML += longHour[i] + " " + longTimeBegin + " - " + longTimeEnd + " ";
+        //timeHTML += longHour[i] + " " + longTimeBegin + " - " + longTimeEnd + " ";
 
         if (indexTracker === 3) {
+
+            timeHTML += "<div class='drawer'>"
 
             for (var a = 0; a < longLunchSchBegin.length; a++) {
 
@@ -96,16 +98,19 @@ function grabTimes() {
                 var longLunchDateEnd= new Date(longLunchSchEnd[a]);
                 var longLunchTimeEnd = longLunchDateEnd.toLocaleTimeString();
 
-                timeHTML += lunchHour[a] + " " + longLunchTimeBegin + " - " + longLunchTimeEnd + " ";
+                timeHTML += "<div class='can' style='margin-left:5px; margin-right:5px;'><h2 class='jrsy-font'>" + lunchHour[a] + "</h2><h2 class='jrsy-font'>" + longLunchTimeBegin + " - " + longLunchTimeEnd + "</div>";
+                //lunchHour[a] + " " + longLunchTimeBegin + " - " + longLunchTimeEnd + " ";
 
             }
+
+            timeHTML += "</div>"
 
         }
 
     }
 
-    window.alert(timeHTML);
-    //return timeHTML;
+    //window.alert(timeHTML);
+    return timeHTML;
 }
 
 /*  Planning for how to layout html
