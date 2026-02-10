@@ -2,17 +2,21 @@
 body {
     display: flex;
     justify-content: center;
-    flex-wrap:nowrap;
     align-items:center;
     text-align: center;
     min-height: 100vh;
     font-size:20px;
 }
 
+h1, h2 {
+    margin:5px;
+}
+
 .can {
     display:flex;
     flex-direction:column;
     justify-content:center;
+    margin:inherit;
 }
 
 .drawer {
@@ -20,3 +24,8 @@ body {
     flex-direction:row;
     justify-content:center;
 }
+
+.horiReadjust {
+    margin: 0px 10px;
+}
+

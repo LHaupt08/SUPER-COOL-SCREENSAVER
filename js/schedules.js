@@ -70,8 +70,10 @@ function selectSchedule() {
 
 function grabTimes() {
 
+    // Sets up schedule layout.
+
     var timeHTML = "";
-    var indexTracker = 0;
+    var indexTrackerI = 0;
 
     for (var i = 0; i < longSchBegin.length; i++) {
 
@@ -80,15 +82,19 @@ function grabTimes() {
 
         var longDateEnd= new Date(longSchEnd[i]);
         var longTimeEnd = longDateEnd.toLocaleTimeString();
-        indexTracker +=1;
 
         timeHTML += "<h2><span>" + longHour[i] + "</span><span> " + longTimeBegin + " - " + longTimeEnd + "</span></h2>";
 
         //timeHTML += longHour[i] + " " + longTimeBegin + " - " + longTimeEnd + " ";
 
-        if (indexTracker === 3) {
+        indexTrackerI +=1;
 
-            timeHTML += "<div class='drawer'>"
+        if (indexTrackerI === 3) {
+
+            timeHTML += "<div class='drawer'><div class='can'><div class='drawer'>"
+
+            var indexTrackerA = 0;
+
 
             for (var a = 0; a < longLunchSchBegin.length; a++) {
 
@@ -98,12 +104,20 @@ function grabTimes() {
                 var longLunchDateEnd= new Date(longLunchSchEnd[a]);
                 var longLunchTimeEnd = longLunchDateEnd.toLocaleTimeString();
 
-                timeHTML += "<div class='can' style='margin-left:5px; margin-right:5px;'><h2 class='jrsy-font'>" + lunchHour[a] + "</h2><h2 class='jrsy-font'>" + longLunchTimeBegin + " - " + longLunchTimeEnd + "</div>";
+                timeHTML += "<div class='can horiReadjust'><h2 class='jrsy-font'>" + lunchHour[a] + "</h2><h2 class='jrsy-font'>" + longLunchTimeBegin + " - " + longLunchTimeEnd + "</div>";
                 //lunchHour[a] + " " + longLunchTimeBegin + " - " + longLunchTimeEnd + " ";
+
+                indexTrackerA += 1;
+
+                if (indexTrackerA === 2) {
+
+                    timeHTML += "</div><div class='drawer'>"
+
+                }
 
             }
 
-            timeHTML += "</div>"
+            timeHTML += "</div></div></div>"
 
         }
 
@@ -114,19 +128,7 @@ function grabTimes() {
 }
 
 /*  Planning for how to layout html
-<div>
 
-    <h2>longHour[i] + longTime[i]</h2>    time variable will contain both times.
-    <h2>longHour[i] + longTime[i]</h2>
-    <h2>longHour[i] + longTime[i]</h2>
 
-    <div>
 
-        <h3>longLunchHour[0] + longLunchTime[0]</h2>
-        <h3>longLunchHour[1] + longLunchTime[1]</h2>
-        <h3>longLunchHour[2] + longLunchTime[2]</h2>
-        <h3>longLunchHour[3] + longLunchTime[3]</h2>
-
-    </div>
-
-    <h2>longHour[i] + longTime[i]</h2> */
+*/
