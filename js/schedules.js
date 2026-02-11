@@ -21,7 +21,7 @@ function setupSchedule() {
 
     scheduleHTML += curSchedule + "</h1>";
 
-    scheduleHTML += grabTimes();
+    scheduleHTML += grabTimes(classColor);
     //grabTimes();
 
     document.getElementById("schedule").innerHTML = scheduleHTML;
@@ -68,44 +68,82 @@ function selectSchedule() {
 
 }
 
-function grabTimes() {
+function grabTimes(classColor) {
 
     // Sets up schedule layout.
 
     var timeHTML = "";
     var indexTrackerI = 0;
 
-    for (var i = 0; i < longSchBegin.length; i++) {
+    // Hoping to make the system more modular: SUCCESS!!!
 
-        var longDateBegin= new Date(longSchBegin[i]);
-        var longTimeBegin = longDateBegin.toLocaleTimeString();
+    var scheduleHours;
+    var scheduleBeginTimes;
+    var scheduleEndTimes;
+    var scheduleLunchBeginTimes;
+    var scheduleLunchEndTimes;
 
-        var longDateEnd= new Date(longSchEnd[i]);
-        var longTimeEnd = longDateEnd.toLocaleTimeString();
+    var lunchBreak;
 
-        timeHTML += "<h2><span>" + longHour[i] + "</span><span> " + longTimeBegin + " - " + longTimeEnd + "</span></h2>";
+    if (classColor == "rbtext") {
 
-        //timeHTML += longHour[i] + " " + longTimeBegin + " - " + longTimeEnd + " ";
+        scheduleHours = longHour;
+        scheduleBeginTimes = longSchBegin;
+        scheduleEndTimes = longSchEnd;
+        scheduleLunchBeginTimes = longLunchSchBegin;
+        scheduleLunchEndTimes = longLunchSchEnd;
+
+    }else if (classColor == "greentext") {
+
+        scheduleHours = shortHour;
+        scheduleBeginTimes = shortSchBegin;
+        scheduleEndTimes = shortSchEnd;
+        scheduleLunchBeginTimes = shortLunchSchBegin;
+        scheduleLunchEndTimes = shortLunchSchEnd;
+        
+    }else {
+
+        scheduleHours = weirdHour;
+        scheduleBeginTimes = weirdSchBegin;
+        scheduleEndTimes = weirdSchEnd;
+        scheduleLunchBeginTimes = weirdLunchSchBegin;
+        scheduleLunchEndTimes = weirdLunchSchEnd;
+        
+    }
+
+    if (scheduleHours.length == 4) {
+        lunchBreak = 3;
+    }else {
+        lunchBreak = 5;
+    }
+
+    for (var i = 0; i < scheduleHours.length; i++) {
+
+        var dateBegin= new Date(scheduleBeginTimes[i]);
+        var timeBegin = dateBegin.toLocaleTimeString();
+
+        var dateEnd= new Date(scheduleEndTimes[i]);
+        var timeEnd = dateEnd.toLocaleTimeString();
+
+        timeHTML += "<h2 class='jrsy-font'><span>" + scheduleHours[i] + "</span><span> " + timeBegin + " - " + timeEnd + "</span></h2>";
 
         indexTrackerI +=1;
 
-        if (indexTrackerI === 3) {
+        if (indexTrackerI === lunchBreak) {
 
             timeHTML += "<div class='drawer'><div class='can'><div class='drawer'>"
 
             var indexTrackerA = 0;
 
+            for (var a = 0; a < lunchHour.length; a++) {
 
-            for (var a = 0; a < longLunchSchBegin.length; a++) {
+                var lunchDateBegin= new Date(scheduleLunchBeginTimes[a]);
+                var lunchTimeBegin = lunchDateBegin.toLocaleTimeString();
 
-                var longLunchDateBegin= new Date(longLunchSchBegin[a]);
-                var longLunchTimeBegin = longLunchDateBegin.toLocaleTimeString();
+                var lunchDateEnd= new Date(scheduleLunchEndTimes[a]);
+                var lunchTimeEnd = lunchDateEnd.toLocaleTimeString();
 
-                var longLunchDateEnd= new Date(longLunchSchEnd[a]);
-                var longLunchTimeEnd = longLunchDateEnd.toLocaleTimeString();
-
-                timeHTML += "<div class='can horiReadjust'><h2 class='jrsy-font'>" + lunchHour[a] + "</h2><h2 class='jrsy-font'>" + longLunchTimeBegin + " - " + longLunchTimeEnd + "</div>";
-                //lunchHour[a] + " " + longLunchTimeBegin + " - " + longLunchTimeEnd + " ";
+                timeHTML += "<div class='can horiReadjust'><h2 class='jrsy-font'>" + lunchHour[a] + "</h2><h2 class='jrsy-font'>" + lunchTimeBegin + " - " + lunchTimeEnd + "</div>";
 
                 indexTrackerA += 1;
 
@@ -117,9 +155,9 @@ function grabTimes() {
 
             }
 
-            timeHTML += "</div></div></div>"
-
         }
+
+        timeHTML += "</div></div></div>"
 
     }
 
