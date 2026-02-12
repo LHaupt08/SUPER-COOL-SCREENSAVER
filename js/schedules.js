@@ -25,7 +25,7 @@ function setupSchedule() {
     //grabTimes();
 
     document.getElementById("schedule").innerHTML = scheduleHTML;
-    return classColor;
+    gradientChanger(curSchedule);
 
 }
 
@@ -161,9 +161,50 @@ function grabTimes(classColor) {
         timeHTML += "</div></div></div>"
 
     }
+//window.alert(timeHTML);
+return timeHTML;
+}
 
-    //window.alert(timeHTML);
-    return timeHTML;
+
+// Code for gradient
+
+
+function gradientChanger(curSchedule) {
+    var schedule = "";
+    var seconds = "";
+
+    if (curSchedule === "Red / Black Day") {
+        schedule="redblack";
+        seconds = 6;
+    } else if(curSchedule === "Green Day") {
+        schedule="green";
+        seconds = 3;
+    } else {
+        schedule="blue";
+        seconds = 2;
+    }
+
+    keyframes(schedule);
+
+    var animHTML = "html:has(.can>.drawer>input.coolBG:checked) {background: linear-gradient(320deg, var(--startColor), var(--endColor)); animation: gradient ";
+    animHTML += seconds + "s linear infinite;}";
+
+    document.getElementById("coolBackground").innerHTML = animHTML;
+
+}
+
+function keyframes(schedule) {
+
+    var keyframes ="";
+
+    if (schedule=="redblack") {
+        keyframes = "@keyframes gradient {0%,100% {--startColor: #ff7a7a;--endColor: #6c6c6c;} 20% {--startColor: #6c6c6c;--endColor: #000000;}40% {--startColor: #000000;--endColor: #5b0000;}60% {--startColor: #5b0000;--endColor: #c24848;}80% {--startColor: #c24848;--endColor: #ff7a7a;}}"
+    }else if (schedule=="green") {
+        keyframes = "@keyframes gradient {0%,100% {--startColor: #4f9a49;--endColor: #8ebd1e;}35% {--startColor: #8ebd1e;--endColor: #000000;}50% {--startColor: #000000;--endColor: #000000;}75% {--startColor: #000000;--endColor: #4f9a49;}"
+    }else {
+        keyframes = "@keyframes gradient {0%,100% {--startColor: #000000;--endColor: #000000;}15% {--startColor: #000000;--endColor: #3d21ba;}20% {--startColor: #3d21ba;--endColor: #3555c0;}40% {--startColor: #4c8ecc;--endColor: #00a5c2;}45% {--startColor: #00a5c2;--endColor: #000000;}50% {--startColor: #000000;--endColor: #000000;}55% {--startColor: #3d21ba;--endColor: #000000;}60% {--startColor: #3555c0;--endColor: #3d21ba;}80% {--startColor: #00a5c2;--endColor: #4c8ecc;}85% {--startColor: #000000;--endColor: #00a5c2;}}"
+    }
+    document.getElementById("animationSet").innerHTML = keyframes;
 }
 
 /*  Planning for how to layout html
