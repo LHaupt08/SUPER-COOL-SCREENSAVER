@@ -25,6 +25,7 @@ function setupSchedule() {
     //grabTimes();
 
     document.getElementById("schedule").innerHTML = scheduleHTML;
+    return classColor;
 
 }
 
@@ -75,7 +76,7 @@ function grabTimes(classColor) {
     var timeHTML = "";
     var indexTrackerI = 0;
 
-    // Hoping to make the system more modular: SUCCESS!!!
+    // Hoping to make the system more modular: ?
 
     var scheduleHours;
     var scheduleBeginTimes;

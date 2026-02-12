@@ -5,39 +5,47 @@
 /*Background*/
 @property --startColor {
     syntax: "<color>";
-    initial-value: #698f61;
+    initial-value: #ffffff;
     inherits: false;
     }
 
 @property --endColor {
     syntax: "<color>";
-    initial-value: #348b21;
+    initial-value: #000000;
     inherits: false;
     }
     
     @keyframes gradient {
         0%,100% {
-            --startColor: #698f61;
-            --endColor: #348b21;
+            --startColor: #ff7a7a;
+            --endColor: #6c6c6c;
+        }
+        20% {
+            --startColor: #6c6c6c;
+            --endColor: #000000;
         }
         40% {
-            --startColor: #348b21;
-            --endColor: #24678b;
+            --startColor: #000000;
+            --endColor: #5b0000;
         }
-        70% {
-            --startColor: #24678b;
-            --endColor: #698f61;
+        60% {
+            --startColor: #5b0000;
+            --endColor: #ff0000;
+        }
+        80% {
+            --startColor: #ff0000;
+            --endColor: #ff7a7a;
         }
     }
+
+/*html:has(.can>.drawer>input.coolBG:checked) {
+    background: linear-gradient(320deg, var(--startColor), var(--endColor));
+    animation: gradient 6s linear infinite;
+}*/
 
 html {
     background:#141414;
     color:white;
-}
-
-html:has(.can>.drawer>input.coolBG:checked) {
-    background: linear-gradient(320deg, var(--startColor), var(--endColor));
-    animation: gradient 6s linear infinite;
 }
 
 .orbit-font {
